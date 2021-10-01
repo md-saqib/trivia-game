@@ -46,19 +46,12 @@ const MainGame = (props) => {
       }, 3000)
   
     }
-
-    // Function for Next question
-    const handleNextQuestion = () => {
-        setOutput('')
-        setAnswerInput('')
-        setLoadApi(!loadApi)
-    }
     
     return (
         <div>
             <div className="d-flex justify-content-center col-md-6 m-auto">
                 <form onSubmit={handleFormSubmit}>
-                    <h3 class="form-label pt-4">
+                    <h3 className="form-label pt-4">
                         {
                             givenQuestion.map((ele) => {
                             return ele.question
@@ -66,27 +59,17 @@ const MainGame = (props) => {
                         }
                     </h3>
 
-                    {/* Optional, this is just to verify the answers */}
-                    <span>({ givenQuestion.map(ele => ele.answer )})</span> 
-
                     <input type="text" 
                         className="form-control my-4" 
                         value={answerInput} 
                         onChange={handleAnswerInput}
-                        required
                     />
 
-                    <div>
                     <input type="submit" 
-                        value="Check" 
+                        value="Check"
+                        disabled={answerInput.length === 0 ? true : false}
                         className="btn btn-primary mx-2" 
                     />
-                    <input type="button" 
-                        value="Next Question >" 
-                        className="btn btn-info mx-2" 
-                        onClick={handleNextQuestion}
-                    />
-                    </div>
         
                 </form>
             </div>
@@ -96,7 +79,7 @@ const MainGame = (props) => {
                 output === '' ? (
                     <div></div>
                 ) : (
-                    <div class="alert alert-secondary col-md-4 m-auto mt-4" role="alert">
+                    <div className="alert alert-secondary col-md-4 m-auto mt-4" role="alert">
                         {output}
                     </div>
                 )

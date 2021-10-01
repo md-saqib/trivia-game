@@ -1,6 +1,6 @@
 # Trivia Game
 
-A Simple Trivia which fetches questions and answers from API and validates answer
+A Simple Trivia which fetches questions and answers from the [API](https://jservice.io/api/random) and validates answer
 
 
 ## Installation
